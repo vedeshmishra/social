@@ -1,0 +1,37 @@
+// step to setup express js setup
+npm init -y
+npm i express@5.0.0-alpha.8
+
+npm i -D nodemon
+npm i ejs
+npm i mongoose
+npm i dotenv
+
+npm i bcrypt
+npm i jsonwebtoken
+
+npm i cookie-parser
+
+npm i nodemailer
+
+ 
++++ run command +++
+npm run start/dev
+
+
+npm i cors //for policy error
+*********************app.js******
+ 
+import express from 'express';
+const app = express();
+const port = process.env.PORT || '3000';
+import web from './routes/web.js';
+//set view engine ejs
+app.set('view engine', 'ejs');
+// serve static files
+app.use(express.static('public')); 
+app.use('/', web);
+app.listen(port, () => {
+    console.log(`Server is listening on port http://localhost:${port}`);
+});
+  
